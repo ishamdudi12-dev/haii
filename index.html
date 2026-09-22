@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixie Bike Designer - Build Your Dream Fixie</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- LANDING SCREEN -->
+    <div id="landing-screen" class="active">
+        <div class="landing-content">
+            <i class="fa-solid fa-bicycle landing-icon"></i>
+            <h1>FIXIE BIKE DESIGNER</h1>
+            <p>"Build Your Dream Fixie"</p>
+            <button id="btn-start" class="btn-primary"><i class="fa-solid fa-play"></i> START DESIGNING</button>
+        </div>
+    </div>
+
+    <!-- MAIN GAME CONTAINER -->
+    <div id="game-container" class="hidden">
+        
+        <!-- TOP BAR / HEADER -->
+        <header class="top-bar">
+            <div class="logo">
+                <i class="fa-solid fa-wrench"></i> <span>FIXIE STUDIO</span>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-target="customize"><i class="fa-solid fa-sliders"></i> Customize</button>
+                <button class="nav-btn" data-target="my-bikes"><i class="fa-solid fa-warehouse"></i> My Bikes</button>
+            </nav>
+            <div class="currency-display">
+                <i class="fa-solid fa-coins"></i> <span id="user-coins">0</span> BC
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="main-viewport">
+
+            <!-- BIKE VIEW CANVAS AREA -->
+            <section class="bike-stage">
+                <div class="garage-background">
+                    <div class="light-beam"></div>
+                </div>
+
+                <!-- CANVAS FOR DRAWING BIKE -->
+                <canvas id="bikeCanvas" width="800" height="500"></canvas>
+
+                <!-- QUICK CONTROLS -->
+                <div class="stage-controls">
+                    <button id="btn-random" title="Randomize Build"><i class="fa-solid fa-shuffle"></i> Random</button>
+                    <button id="btn-reset" title="Reset Bike"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+                    <button id="btn-save-build" class="btn-success" title="Save to Garage"><i class="fa-solid fa-bookmark"></i> Save Build</button>
+                </div>
+
+                <!-- BIKE INFO OVERLAY -->
+                <div class="bike-info-overlay">
+                    <div class="stat"><i class="fa-solid fa-weight-hanging"></i> <span id="stat-weight">9.2</span> kg</div>
+                    <div class="stat"><i class="fa-solid fa-shield"></i> <span id="stat-material">Aluminum</span></div>
+                    <div class="stat"><i class="fa-solid fa-bolt"></i> <span id="stat-style">Track</span></div>
+                </div>
+            </section>
+
+            <!-- CUSTOMIZATION PANEL (RIGHT/BOTTOM) -->
+            <section id="panel-customize" class="view-panel active">
+                
+                <!-- CATEGORY TABS (HORIZONTAL SCROLL) -->
+                <div class="category-scroll">
+                    <div class="category-tabs" id="category-tabs">
+                        <!-- Categories dynamically loaded by JS -->
+                    </div>
+                </div>
+
+                <!-- ITEM OPTIONS & COLOR PICKER AREA -->
+                <div class="panel-content">
+                    
+                    <!-- COLOR PICKER SECTION -->
+                    <div class="color-section">
+                        <span>Component Color:</span>
+                        <input type="color" id="component-color-picker" value="#ff0000">
+                    </div>
+
+                    <!-- PARTS GRID -->
+                    <div class="parts-grid" id="parts-grid">
+                        <!-- Part cards dynamically loaded by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- MY BIKES / GARAGE PANEL -->
+            <section id="panel-my-bikes" class="view-panel hidden">
+                <h2><i class="fa-solid fa-warehouse"></i> My Saved Bikes</h2>
+                <div class="saved-bikes-grid" id="saved-bikes-grid">
+                    <!-- Saved bikes loaded here -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
